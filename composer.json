@@ -11,16 +11,24 @@
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "^7.2",
+        "i-raven/i-hub": "@dev",
         "laravel/framework": "^8.12",
+        "laravel/slack-notification-channel": "^2.3",
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.8",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
+        "jeroen-g/laravel-packager": "^2.6",
+        "laravel/legacy-factories": "^1.0.4",
+        "laravel/telescope": "^4.3",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "orchestra/testbench": "^6.4",
+        "phpunit/phpunit": "^9.3.3",
+        "timacdonald/log-fake": "^1.7"
     },
     "config": {
         "optimize-autoloader": true,
@@ -29,7 +37,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "barryvdh/laravel-ide-helper"
+            ]
         }
     },
     "autoload": {
@@ -41,7 +51,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "IRaven\\IHub\\Tests\\": "packages/I-Raven/I-Hub/tests/"
         }
     },
     "minimum-stability": "dev",
@@ -57,5 +68,14 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
+    },
+    "repositories": {
+        "i-raven/i-hub": {
+            "type": "path",
+            "url": "/Users/kousha/I-Raven/I-Hub/packages/I-Raven/I-Hub",
+            "options": {
+                "symlink": true
+            }
+        }
     }
 }
