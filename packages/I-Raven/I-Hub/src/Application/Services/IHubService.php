@@ -2,13 +2,16 @@
 
 namespace IRaven\IHub\Application\Services;
 
+use IRaven\IHub\Domain\Contracts\Services\IHubServiceContract;
 use IRaven\IHub\Domain\Contracts\Services\PingServiceContract;
+use IRaven\IHub\Domain\Exceptions\PingWriteException;
+use IRaven\IHub\Domain\Models\Ping;
 
 /**
  * Class IHub
  * @package IRaven\IHub\Application\RPC
  */
-class IHubService
+class IHubService implements IHubServiceContract
 {
     private $pingService;
 
@@ -23,9 +26,11 @@ class IHubService
 
     /**
      * @param string $ip
+     * @return Ping
+     * @throws PingWriteException
      */
-    public function ping(string $ip): void
+    public function ping(string $ip): Ping
     {
-        $this->pingService->ping($ip);
+        return $this->pingService->ping($ip);
     }
 }

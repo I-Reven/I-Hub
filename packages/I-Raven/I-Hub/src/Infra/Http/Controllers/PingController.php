@@ -4,7 +4,7 @@ namespace IRaven\IHub\Infra\Http\Controllers;
 
 use IRaven\IHub\Domain\Contracts\Services\PingServiceContract;
 use IRaven\IHub\Infra\Http\Requests\PingRequest;
-use PingWriteException;
+use IRaven\IHub\Domain\Exceptions\PingWriteException;
 
 /**
  * Class PingController
@@ -20,6 +20,7 @@ class PingController extends BaseController
      */
     public function __construct(PingServiceContract $pingService)
     {
+        parent::__construct();
         $this->pingService = $pingService;
     }
 

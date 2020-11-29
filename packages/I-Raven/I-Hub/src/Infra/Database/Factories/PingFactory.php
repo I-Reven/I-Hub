@@ -5,6 +5,10 @@ namespace IRaven\IHub\Infra\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use IRaven\IHub\Domain\Models\Ping;
 
+/**
+ * Class PingFactory
+ * @package IRaven\IHub\Infra\Database\Factories
+ */
 class PingFactory extends Factory
 {
 

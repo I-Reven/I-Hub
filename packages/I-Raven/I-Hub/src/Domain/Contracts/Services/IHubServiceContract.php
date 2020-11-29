@@ -2,14 +2,10 @@
 
 namespace IRaven\IHub\Domain\Contracts\Services;
 
-use IRaven\IHub\Domain\Models\Ping;
 use IRaven\IHub\Domain\Exceptions\PingWriteException;
+use IRaven\IHub\Domain\Models\Ping;
 
-/**
- * Interface PingServiceContract
- * @package IRaven\IHub\Domain\Service
- */
-interface PingServiceContract
+interface IHubServiceContract
 {
     /**
      * @param string $ip

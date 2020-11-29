@@ -2,8 +2,6 @@
 
 namespace IRaven\IHub\Domain\Events;
 
-use IRaven\IHub\Domain\Models\Ping;
-
 /**
  * Class PingEvent
  * @package IRaven\IHub\Domain\Events

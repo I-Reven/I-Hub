@@ -3,7 +3,7 @@
 namespace IRaven\IHub\Domain\Contracts\Repositories;
 
 use IRaven\IHub\Domain\Models\Ping;
-use PingWriteException;
+use IRaven\IHub\Domain\Exceptions\PingWriteException;
 
 /**
  * Interface PingRepositoryContract

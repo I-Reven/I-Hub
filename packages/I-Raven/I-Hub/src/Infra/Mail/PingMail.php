@@ -2,20 +2,14 @@
 
 namespace IRaven\IHub\Infra\Mail;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Mail\Mailable;
-use Illuminate\Queue\SerializesModels;
 use IRaven\IHub\Domain\Models\Ping;
 
 /**
  * Class PingMail
  * @package IRaven\IHub\Infra\Mail
  */
-class PingMail extends Mailable
+class PingMail extends BaseMail
 {
-    use Queueable, SerializesModels;
-
     protected $ping;
 
     /**

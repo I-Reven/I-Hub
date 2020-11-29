@@ -6,6 +6,10 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use IRaven\IHub\Application\Listeners\PingListener;
 use IRaven\IHub\Domain\Events\PingEvent;
 
+/**
+ * Class IHubEventServiceProvider
+ * @package IRaven\IHub
+ */
 class IHubEventServiceProvider extends ServiceProvider
 {
     protected $listen = [

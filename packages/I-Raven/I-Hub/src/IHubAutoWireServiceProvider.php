@@ -2,10 +2,12 @@
 
 namespace IRaven\IHub;
 
-use IRaven\IHub\Application\Jobs\PingJob;
+use IRaven\IHub\Application\Handlers\ExceptionHandler;
+use IRaven\IHub\Application\Services\IHubService;
 use IRaven\IHub\Application\Services\PingService;
-use IRaven\IHub\Domain\Contracts\Jobs\PingJobContract;
+use IRaven\IHub\Domain\Contracts\Handlers\ExceptionHandlerContract;
 use IRaven\IHub\Domain\Contracts\Repositories\PingRepositoryContract;
+use IRaven\IHub\Domain\Contracts\Services\IHubServiceContract;
 use IRaven\IHub\Domain\Contracts\Services\PingServiceContract;
 use IRaven\IHub\Infra\Repositories\PingRepository;
 
@@ -23,6 +25,10 @@ class IHubAutoWireServiceProvider
         return [
             //Services
             PingServiceContract::class => PingService::class,
+            IHubServiceContract::class => IHubService::class,
+
+            //Handlers
+            ExceptionHandlerContract::class => ExceptionHandler::class,
 
             //Repositories
             PingRepositoryContract::class => PingRepository::class

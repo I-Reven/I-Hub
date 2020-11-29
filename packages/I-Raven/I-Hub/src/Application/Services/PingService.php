@@ -5,7 +5,8 @@ namespace IRaven\IHub\Application\Services;
 use IRaven\IHub\Domain\Contracts\Repositories\PingRepositoryContract;
 use IRaven\IHub\Domain\Contracts\Services\PingServiceContract;
 use IRaven\IHub\Domain\Models\Ping;
-use PingWriteException;
+use IRaven\IHub\Domain\Exceptions\PingWriteException;
+use IRaven\IHub\Infra\Mail\PingMail;
 
 /**
  * Class PingService

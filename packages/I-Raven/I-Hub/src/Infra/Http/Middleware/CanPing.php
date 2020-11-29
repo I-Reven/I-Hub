@@ -5,10 +5,10 @@ namespace IRaven\IHub\Infra\Http\Middleware;
 use Closure;
 
 /**
- * Class IsPartner
+ * Class CanPing
  * @package IRaven\IHub\Infra\Http\Middleware
  */
-class IsPartner
+class CanPing
 {
     /**
      * @param $request

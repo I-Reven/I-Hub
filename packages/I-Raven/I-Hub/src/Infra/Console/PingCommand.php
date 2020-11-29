@@ -2,14 +2,13 @@
 
 namespace IRaven\IHub\Infra\Console;
 
-use Illuminate\Console\Command;
 use IRaven\IHub\Domain\Events\PingEvent;
 
 /**
  * Class PingCommand
  * @package IRaven\IHub\Infra\Console
  */
-class PingCommand extends Command
+class PingCommand extends BaseCommand
 {
     /**
      * The name and signature of the console command.

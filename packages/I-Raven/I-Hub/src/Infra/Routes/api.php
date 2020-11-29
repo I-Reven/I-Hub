@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use IRaven\IHub\Infra\Http\Controllers\PingController;
-use IRaven\IHub\Infra\Http\Middleware\IsPartner;
+use IRaven\IHub\Infra\Http\Middleware\CanPing;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,7 @@ use IRaven\IHub\Infra\Http\Middleware\IsPartner;
 */
 
 Route::prefix('i-raven/i-hub/api/')
-    ->middleware(IsPartner::class)
+    ->middleware(CanPing::class)
     ->group(function () {
         Route::prefix('v1/')
             ->group(function () {

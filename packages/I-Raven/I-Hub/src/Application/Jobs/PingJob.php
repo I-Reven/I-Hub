@@ -3,7 +3,12 @@
 namespace IRaven\IHub\Application\Jobs;
 
 use IRaven\IHub\Domain\Contracts\Services\PingServiceContract;
+use IRaven\IHub\Domain\Exceptions\PingWriteException;
 
+/**
+ * Class PingJob
+ * @package IRaven\IHub\Application\Jobs
+ */
 class PingJob extends BaseJob
 {
     private $ip;
@@ -19,6 +24,7 @@ class PingJob extends BaseJob
 
     /**
      * @param PingServiceContract $pingService
+     * @throws PingWriteException
      */
     public function handle(PingServiceContract $pingService)
     {

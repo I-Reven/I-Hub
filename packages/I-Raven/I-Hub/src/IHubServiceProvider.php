@@ -2,9 +2,11 @@
 
 namespace IRaven\IHub;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider;
 use IRaven\IHub\Application\Services\IHubService;
 use IRaven\IHub\Application\Services\PingService;
+use IRaven\IHub\Infra\Console\Kernel;
 use IRaven\IHub\Infra\Console\PingCommand;
 
 /**
@@ -34,6 +36,11 @@ class IHubServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
+
+        // Attach Package Console Kernel
+        $this->app->booted(function () {
+            (new Kernel())->schedule(app(Schedule::class));
+        });
     }
 
     /**
@@ -52,6 +59,9 @@ class IHubServiceProvider extends ServiceProvider
         $this->app->singleton('i-hub', function ($app) {
             return new IHubService($app->make(PingService::class));
         });
+
+        /** Redirect Exception To Package Handler */
+//        $this->app->singleton(ExceptionHandler::class, ExceptionHandlerContract::class);
     }
 
     /**
