@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66b02c839638765b9385a09ec4d75392",
+    "content-hash": "d9e0e118332bf4748f9f36acf13ac422",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -891,6 +891,128 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.7.0"
             },
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "i-raven/hexagonal",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/Users/kousha/I-Raven/I-Hub/packages/I-Raven/Hexagonal",
+                "reference": "d409352a29689115fe66a6a62a26e0294dab8c03"
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.2",
+                "illuminate/support": "~7|~8",
+                "laravel/slack-notification-channel": "^2.3"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.0.4",
+                "orchestra/testbench": "~5|~6",
+                "phpunit/phpunit": "~9.0",
+                "timacdonald/log-fake": "^1.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "IRaven\\Hexagonal\\HexagonalServiceProvider"
+                    ],
+                    "aliases": {
+                        "Hexagonal": "HexagonalFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "IRaven\\Hexagonal\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "IRaven\\Hexagonal\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kousha",
+                    "email": "kousha.ghodsizad@gmail.com",
+                    "homepage": "https://github.com/I-Reven"
+                }
+            ],
+            "description": ":package_description",
+            "homepage": "https://github.com/i-raven/hexagonal",
+            "keywords": [
+                "HexagonalFacade",
+                "Laravel"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
+        },
+        {
+            "name": "i-raven/i-admin",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/Users/kousha/I-Raven/I-Hub/packages/I-Raven/I-Admin",
+                "reference": "9a6c8d5b2ee2c4d75e4b3dec2292b4f6fafe008b"
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.2",
+                "illuminate/support": "~7|~8",
+                "laravel/slack-notification-channel": "^2.3"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.0.4",
+                "orchestra/testbench": "~5|~6",
+                "phpunit/phpunit": "~9.0",
+                "timacdonald/log-fake": "^1.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "IRaven\\IAdmin\\IAdminServiceProvider"
+                    ],
+                    "aliases": {
+                        "IAdmin": "IAdminFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "IRaven\\IAdmin\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "IRaven\\IAdmin\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kousha",
+                    "email": "kousha.ghodsizad@gmail.com",
+                    "homepage": "https://github.com/I-Reven"
+                }
+            ],
+            "description": ":package_description",
+            "homepage": "https://github.com/i-raven/i-admin",
+            "keywords": [
+                "IAdminFacade",
+                "Laravel"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "i-raven/i-hub",
@@ -8979,6 +9101,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "i-raven/hexagonal": 20,
+        "i-raven/i-admin": 20,
         "i-raven/i-hub": 20
     },
     "prefer-stable": true,

@@ -2,41 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28b8178c-b456-4add-9e7a-c203ef93096b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Application/Handlers/ExceptionHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Domain/Contracts/Handlers/ExceptionHandlerContract.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Domain/Contracts/Services/IHubServiceContract.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Console/BaseCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Console/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Mail/BaseMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Unit/Services/IHubServiceTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Unit/Services/PingServiceTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/.styleci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/changelog.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/contributing.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/license.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Application/Facades/IAdminFacade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Application/Handlers/ExceptionHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Application/Jobs/BaseJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Application/Jobs/PingJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Application/Listeners/EventSubscriber.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Application/Listeners/PingListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Application/Services/IAdminService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Application/Services/PingService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Domain/Config/i-admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Domain/Contracts/Handlers/ExceptionHandlerContract.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Domain/Contracts/Repositories/PingRepositoryContract.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Domain/Contracts/Services/IAdminServiceContract.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Domain/Contracts/Services/PingServiceContract.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Domain/Events/BaseEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Domain/Events/PingEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Domain/Exceptions/PingWriteException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Domain/Models/Ping.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/IAdminAutoWireServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/IAdminEventServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/IAdminServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Console/BaseCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Console/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Console/PingCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Database/Factories/PingFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Database/Migrations/2020_11_28_000000_create_pings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Database/Seeders/IAdminDatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Http/Controllers/BaseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Http/Controllers/PingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Http/Middleware/CanPing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Http/Requests/PingRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Mail/BaseMail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Mail/PingMail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Notifications/BaseNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Notifications/PingNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Repositories/PingRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Resources/views/emails/ping.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/src/Infra/Routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/tests/Features/Console/PingConsoleTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/tests/Features/Http/PingHttpTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/tests/Integration/Repositories/PingRepositoryTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/tests/TestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/tests/Unit/Services/IAdminServiceTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/I-Raven/I-Admin/tests/Unit/Services/PingServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/I-Hub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/I-Hub.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Application/Jobs/PingJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Application/Jobs/PingJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Application/Services/IHubService.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Application/Services/IHubService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Application/Services/PingService.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Application/Services/PingService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Domain/Contracts/Repositories/PingRepositoryContract.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Domain/Contracts/Repositories/PingRepositoryContract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Domain/Contracts/Services/PingServiceContract.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Domain/Contracts/Services/PingServiceContract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Domain/Events/PingEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Domain/Events/PingEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Domain/Exceptions/PingWriteException.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Domain/Exceptions/PingWriteException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/IHubAutoWireServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/IHubAutoWireServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/IHubEventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/IHubEventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/IHubServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/IHubServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Console/PingCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Console/PingCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Database/Factories/PingFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Database/Factories/PingFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Database/Migrations/2020_11_28_000000_create_pings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Database/Migrations/2020_11_28_000000_create_pings_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Database/Seeders/IHubDatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Database/Seeders/IHubDatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Http/Controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Http/Controllers/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Http/Controllers/PingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Http/Controllers/PingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Http/Middleware/IsPartner.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Http/Middleware/CanPing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Mail/PingMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Mail/PingMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Repositories/PingRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Repositories/PingRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/src/Infra/Routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/FeatureTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/TestCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Features/Console/PingConsoleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Features/Console/PingConsoleTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Features/Http/PingHttpTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Features/Http/PingHttpTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +200,8 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/i-raven/I-Admin" />
+      <path value="$PROJECT_DIR$/vendor/i-raven/Hexagonal" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kuONzOjejmGUCqrCFQXwgLxKjZ" />
@@ -223,25 +247,25 @@
       <recent name="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Features/Http" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.tests">
-    <configuration name="IHubServiceTest.is_should_return_ping" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="IRaven\IHub\Tests\Unit\Services\IHubServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Unit/Services/IHubServiceTest.php" method="is_should_return_ping" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.tests (1)">
+    <configuration name="Features" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Features" />
       <method v="2" />
     </configuration>
-    <configuration name="IHubServiceTest.it_should_return_exception_when_try_to_ping" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="IRaven\IHub\Tests\Unit\Services\IHubServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Unit/Services/IHubServiceTest.php" method="it_should_return_exception_when_try_to_ping" scope="Method" />
+    <configuration name="PingConsoleTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="IRaven\IAdmin\Tests\Features\Console\PingConsoleTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/packages/I-Raven/I-Admin/tests/Features/Console/PingConsoleTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="PingHttpTest.it_should_return_pong" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="IRaven\IHub\Tests\Features\Http\PingHttpTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Features/Http/PingHttpTest.php" method="it_should_return_pong" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PingServiceTest.it_should_return_ping_when_given_ip" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="IRaven\IHub\Tests\Unit\Services\PingServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Unit/Services/PingServiceTest.php" method="it_should_return_ping_when_given_ip" scope="Method" />
+    <configuration name="PingRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="IRaven\IHub\Tests\Integration\Repositories\PingRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/packages/I-Raven/I-Hub/tests/Integration/Repositories/PingRepositoryTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/packages/I-Raven/I-Admin/tests" />
       <method v="2" />
     </configuration>
     <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -250,11 +274,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.tests (1)" />
+        <item itemvalue="PHPUnit.PingConsoleTest" />
         <item itemvalue="PHPUnit.tests" />
-        <item itemvalue="PHPUnit.PingServiceTest.it_should_return_ping_when_given_ip" />
-        <item itemvalue="PHPUnit.IHubServiceTest.it_should_return_exception_when_try_to_ping" />
-        <item itemvalue="PHPUnit.IHubServiceTest.is_should_return_ping" />
-        <item itemvalue="PHPUnit.PingHttpTest.it_should_return_pong" />
+        <item itemvalue="PHPUnit.Features" />
+        <item itemvalue="PHPUnit.PingRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606672887851</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add test">
+      <created>1606693664871</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606693664871</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,13 +330,15 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="fix composer.lock" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix composer.lock" />
+    <MESSAGE value="add test" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/I_Hub@Features.xml" NAME="Features Coverage Results" MODIFIED="1606693602060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/I_Hub@tests.xml" NAME="tests Coverage Results" MODIFIED="1606692416488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

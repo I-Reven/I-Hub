@@ -8,6 +8,8 @@
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/packages/I-Raven/I-Hub/tests" isTestSource="true" packagePrefix="IRaven\IHub\Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/I-Raven/Hexagonal/tests" isTestSource="true" packagePrefix="IRaven\Hexagonal\Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/packages/I-Raven/I-Admin/tests" isTestSource="true" packagePrefix="IRaven\IAdmin\Tests\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />

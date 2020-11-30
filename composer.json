@@ -12,6 +12,8 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "i-raven/hexagonal": "@dev",
+        "i-raven/i-admin": "@dev",
         "i-raven/i-hub": "@dev",
         "laravel/framework": "^8.12",
         "laravel/slack-notification-channel": "^2.3",
@@ -52,7 +54,9 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "IRaven\\IHub\\Tests\\": "packages/I-Raven/I-Hub/tests/"
+            "IRaven\\IHub\\Tests\\": "packages/I-Raven/I-Hub/tests/",
+            "IRaven\\IAdmin\\Tests\\": "packages/I-Raven/I-Admin/tests/",
+            "IRaven\\Hexagonal\\Tests\\": "packages/I-Raven/Hexagonal/tests/"
         }
     },
     "minimum-stability": "dev",
@@ -70,6 +74,20 @@
         ]
     },
     "repositories": {
+        "i-raven/hexagonal": {
+            "type": "path",
+            "url": "/Users/kousha/I-Raven/I-Hub/packages/I-Raven/Hexagonal",
+            "options": {
+                "symlink": true
+            }
+        },
+        "i-raven/i-admin": {
+            "type": "path",
+            "url": "/Users/kousha/I-Raven/I-Hub/packages/I-Raven/I-Admin",
+            "options": {
+                "symlink": true
+            }
+        },
         "i-raven/i-hub": {
             "type": "path",
             "url": "/Users/kousha/I-Raven/I-Hub/packages/I-Raven/I-Hub",
