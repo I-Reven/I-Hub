@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use IRaven\IAdmin\Infra\Http\Controllers\AuthController;
 use IRaven\IAdmin\Infra\Http\Controllers\PingController;
 use IRaven\IAdmin\Infra\Http\Middleware\CanPing;
 
@@ -21,5 +22,15 @@ Route::prefix('i-raven/i-admin/api/')
         Route::prefix('v1/')
             ->group(function () {
                 Route::get('ping', [PingController::class, 'ping'])->name('ping');
+
+                Route::prefix('auth/')->group(function () {
+                    Route::post('login', [AuthController::class, 'login'])->name('login');
+                    Route::post('signup', [AuthController::class, 'signup'])->name('signup');
+
+                    Route::middleware(['auth:api'])->group(function () {
+                        Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+                        Route::get('user', [AuthController::class, 'user'])->name('user');
+                    });
+                });
             });
     });

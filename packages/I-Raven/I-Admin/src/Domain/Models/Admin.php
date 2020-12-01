@@ -2,14 +2,44 @@
 
 namespace IRaven\IAdmin\Domain\Models;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
+use IRaven\IAdmin\Infra\Database\Factories\UserFactory;
 
 /**
  * Class Admin
+ *
  * @package IRaven\IAdmin\Domain\Models
+ * @property int $id
+ * @property int $rule
+ * @property int $user_id
+ * @property int $partner_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
+ * @property-read int|null $notifications_count
+ * @method static Builder|Admin newModelQuery()
+ * @method static Builder|Admin newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Admin onlyTrashed()
+ * @method static Builder|Admin query()
+ * @method static Builder|Admin whereCreatedAt($value)
+ * @method static Builder|Admin whereDeletedAt($value)
+ * @method static Builder|Admin whereId($value)
+ * @method static Builder|Admin wherePartnerId($value)
+ * @method static Builder|Admin whereRule($value)
+ * @method static Builder|Admin whereUpdatedAt($value)
+ * @method static Builder|Admin whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|Admin withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Admin withoutTrashed()
+ * @mixin Eloquent
  */
 class Admin extends Authenticatable
 {
@@ -34,8 +64,16 @@ class Admin extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'parent_id',
         'user_id',
+        'partner_id',
         'rule',
     ];
+
+    /**
+     * @return UserFactory
+     */
+    public static function newFactory(): UserFactory
+    {
+        return new UserFactory();
+    }
 }

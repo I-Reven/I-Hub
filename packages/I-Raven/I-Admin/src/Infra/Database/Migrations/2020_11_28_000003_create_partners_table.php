@@ -18,10 +18,10 @@ class CreatePartnersTable extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('prefix');
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->string('name')->unique();
+            $table->string('slog')->unique();
+            $table->string('domain')->unique();
+            $table->string('database')->unique();
             $table->timestamps();
             $table->softDeletes();
         });
