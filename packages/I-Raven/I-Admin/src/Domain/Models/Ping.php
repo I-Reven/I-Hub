@@ -3,6 +3,7 @@
 namespace IRaven\IAdmin\Domain\Models;
 
 use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\DatabaseNotification;
@@ -20,13 +21,13 @@ use IRaven\IAdmin\Infra\Database\Factories\PingFactory;
  * @property Carbon|null $updated_at
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @method static \Illuminate\Database\Eloquent\Builder|Ping newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Ping newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Ping query()
- * @method static \Illuminate\Database\Eloquent\Builder|Ping whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ping whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ping whereIp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ping whereUpdatedAt($value)
+ * @method static Builder|Ping newModelQuery()
+ * @method static Builder|Ping newQuery()
+ * @method static Builder|Ping query()
+ * @method static Builder|Ping whereCreatedAt($value)
+ * @method static Builder|Ping whereId($value)
+ * @method static Builder|Ping whereIp($value)
+ * @method static Builder|Ping whereUpdatedAt($value)
  * @mixin Eloquent
  */
 class Ping extends Model

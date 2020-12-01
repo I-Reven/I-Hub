@@ -3,17 +3,16 @@
 namespace IRaven\IAdmin\Infra\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use IRaven\IAdmin\Domain\Models\Ping;
+use IRaven\IAdmin\Domain\Models\Product;
 
 /**
- * Class PingFactory
+ * Class ProductFactory
  * @package IRaven\IAdmin\Infra\Database\Factories
  */
-class PingFactory extends Factory
+class ProductFactory extends Factory
 {
-
     /** @var string */
-    protected $model = Ping::class;
+    protected $model = Product::class;
 
     /**
      * @return array
@@ -21,7 +20,8 @@ class PingFactory extends Factory
     public function definition(): array
     {
         return [
-            'ip' => $this->faker->ipv4,
+            'name' => $this->faker->word,
+            'prefix' => $this->faker->word,
         ];
     }
 }
