@@ -12,7 +12,6 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
-        "i-raven/hexagonal": "@dev",
         "i-raven/i-admin": "@dev",
         "i-raven/i-hub": "@dev",
         "laravel/framework": "^8.12",
@@ -78,13 +77,6 @@
         ]
     },
     "repositories": {
-        "i-raven/hexagonal": {
-            "type": "path",
-            "url": "/Users/kousha/I-Raven/I-Hub/packages/I-Raven/Hexagonal",
-            "options": {
-                "symlink": true
-            }
-        },
         "i-raven/i-admin": {
             "type": "path",
             "url": "/Users/kousha/I-Raven/I-Hub/packages/I-Raven/I-Admin",
