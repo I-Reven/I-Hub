@@ -5,6 +5,7 @@ namespace IRaven\IAdmin\Domain\Models;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
@@ -12,6 +13,8 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use IRaven\IAdmin\Infra\Database\Factories\PartnerFactory;
+use Spatie\Multitenancy\Models\Concerns\UsesLandlordConnection;
+use Spatie\Multitenancy\Models\Tenant;
 
 /**
  * Class Partner
@@ -41,16 +44,15 @@ use IRaven\IAdmin\Infra\Database\Factories\PartnerFactory;
  * @method static \Illuminate\Database\Query\Builder|Partner withoutTrashed()
  * @mixin Eloquent
  */
-class Partner extends Authenticatable
+class Partner extends Tenant
 {
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes, UsesLandlordConnection;
 
     /**
      * @var string[]
      */
     protected $fillable = [
         'name',
-        'slog',
         'domain',
         'database',
     ];

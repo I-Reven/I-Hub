@@ -11,6 +11,8 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use IRaven\IAdmin\Infra\Database\Factories\PingFactory;
+use Spatie\Multitenancy\Models\Concerns\UsesTenantConnection;
+use Spatie\Multitenancy\Models\Concerns\UsesTenantModel;
 
 /**
  * IRaven\IAdmin\Domain\Models\Ping
@@ -32,7 +34,7 @@ use IRaven\IAdmin\Infra\Database\Factories\PingFactory;
  */
 class Ping extends Model
 {
-    use HasFactory, Notifiable;
+    use UsesTenantConnection, HasFactory, Notifiable;
 
     protected $fillable = [
         'ip',

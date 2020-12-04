@@ -11,9 +11,9 @@ use IRaven\IAdmin\Domain\Models\User;
 
 class AuthService implements AuthServiceContract
 {
-    private $userRepository;
-    private $adminRepository;
-    private $partnerRepository;
+    private UserRepositoryContract $userRepository;
+    private AdminRepositoryContract $adminRepository;
+    private PartnerRepositoryContract $partnerRepository;
 
     /**
      * AuthService constructor.
@@ -36,16 +36,13 @@ class AuthService implements AuthServiceContract
      * @param string $email
      * @param string $name
      * @param string $password
-     * @param string $partnerSlog
-     * @throws ModelNotFoundException
      * @return User
      */
-    public function signup(string $email, string $name, string $password, string $partnerSlog): User
+    public function signup(string $email, string $name, string $password): User
     {
-        $partner = $this->partnerRepository->getPartnerBySlog($partnerSlog);
+        $partner = app('partner');
         $user = $this->userRepository->createUser($email, $name, $password);
-        $this->adminRepository->addUserRule($user,$partner);
-
+        $this->adminRepository->addUserRule($user, $partner);
 
         return $user;
     }

@@ -3,6 +3,8 @@
 namespace IRaven\IAdmin\Tests\Features\Http;
 
 use Illuminate\Http\Response;
+use IRaven\IAdmin\Domain\Models\Partner;
+use IRaven\IAdmin\Domain\Models\Ping;
 use IRaven\IAdmin\Tests\TestCase;
 
 /**
@@ -13,7 +15,7 @@ class PingHttpTest extends TestCase
 {
     public function construct(): void
     {
-        // TODO: Implement construct() method.
+
     }
 
     public function destruct(): void
@@ -26,10 +28,12 @@ class PingHttpTest extends TestCase
      */
     public function it_should_return_pong()
     {
-        $response = $this->get('/i-raven/i-admin/api/v1/ping');
+
+        $response = $this->getJson('/i-raven/i-admin/api/v1/ping');
 
         $this->assertSame($response->getStatusCode(), Response::HTTP_OK);
         $this->assertSame($response->content(), 'Pong');
-        $this->assertDatabaseHas('pings', ['ip' => '127.0.0.1']);
+
+        $this->assertDatabaseHas('pings', ['ip' => '127.0.0.1'],'partner');
     }
 }

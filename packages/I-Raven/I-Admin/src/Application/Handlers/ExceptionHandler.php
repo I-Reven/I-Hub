@@ -3,6 +3,7 @@
 namespace IRaven\IAdmin\Application\Handlers;
 
 use App\Exceptions\Handler;
+use Illuminate\Validation\ValidationException;
 use IRaven\IAdmin\Domain\Contracts\Handlers\ExceptionHandlerContract;
 use IRaven\IAdmin\Domain\Exceptions\PingWriteException;
 use Log;

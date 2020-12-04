@@ -34,7 +34,8 @@ class IAdminServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__ . '/Infra/Resources/lang', 'i-admin');
         $this->loadViewsFrom(__DIR__ . '/Infra/Resources/views', 'i-admin');
-        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations/tenant');
+        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations/landlord');
         $this->loadRoutesFrom(__DIR__ . '/Infra/Routes/api.php');
         $this->loadRoutesFrom(__DIR__ . '/Infra/Routes/web.php');
 
@@ -61,6 +62,7 @@ class IAdminServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/Domain/Config/i-admin.php', 'i-admin');
+        $this->mergeConfigFrom(__DIR__ . '/Domain/Config/multitenancy.php', 'multitenancy');
 
         // Register Event Service Provider
         $this->app->register(IAdminEventServiceProvider::class);
@@ -98,18 +100,26 @@ class IAdminServiceProvider extends ServiceProvider
 
         // Publishing the views.
         $this->publishes([
-            __DIR__ . '/Infra/Resources/views' => base_path('resources/views/vendor/i-raven'),
+            __DIR__ . 'Infra/Resources/views' => base_path('resources/views/vendor/i-raven'),
         ], 'i-admin.views');
 
         // Publishing assets.
         $this->publishes([
-            __DIR__ . '/../resources/assets' => public_path('vendor/i-raven'),
-        ], 'i-admin.views');
+            __DIR__ . 'Infra/Resources/assets' => public_path('vendor/i-raven'),
+        ], 'i-admin.assets');
 
         // Publishing the translation files.
         $this->publishes([
-            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/i-raven'),
-        ], 'i-admin.views');
+            __DIR__ . 'Infra/Resources/lang' => resource_path('lang/vendor/i-raven'),
+        ], 'i-admin.lang');
+
+        // Publishing the migration files.
+        $this->publishes([
+            __DIR__ . '/Infra/Database/Migrations/tenant' => database_path('migrations/tenant'),
+        ], 'i-admin.tenant');
+        $this->publishes([
+            __DIR__ . '/Infra/Database/Migrations/landlord' => database_path('migrations'),
+        ], 'i-admin.landlord');
 
         // Registering package commands.
         $this->commands([

@@ -16,7 +16,7 @@ use function PHPUnit\Framework\isInstanceOf;
  */
 class AuthController extends BaseController
 {
-    private $authService;
+    private AuthServiceContract $authService;
 
     /**
      * AuthController constructor.
@@ -30,16 +30,12 @@ class AuthController extends BaseController
 
     /**
      * @param SignupRequest $request
-     * @return UserResource|ErrorResource
+     * @return UserResource
      */
     public function signup(SignupRequest $request): JsonResource
     {
-        try {
-            $user = $this->authService->signup($request->email, $request->name, $request->password, $request->partner_slog);
-            return new UserResource($user);
-        } catch (ModelNotFoundException $e) {
-            return new ErrorResource($e);
-        }
+        $user = $this->authService->signup($request->email, $request->name, $request->password);
+        return new UserResource($user);
     }
 
 }

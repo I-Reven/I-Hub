@@ -5,6 +5,7 @@ namespace IRaven\IAdmin\Domain\Models;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
@@ -12,6 +13,7 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use IRaven\IAdmin\Infra\Database\Factories\ProductFactory;
+use Spatie\Multitenancy\Models\Concerns\UsesLandlordConnection;
 
 /**
  * Class Product
@@ -39,9 +41,9 @@ use IRaven\IAdmin\Infra\Database\Factories\ProductFactory;
  * @method static \Illuminate\Database\Query\Builder|Product withoutTrashed()
  * @mixin Eloquent
  */
-class Product extends Authenticatable
+class Product extends Model
 {
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes, UsesLandlordConnection;
 
     /**
      * @var string[]

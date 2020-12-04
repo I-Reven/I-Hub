@@ -5,6 +5,7 @@ namespace IRaven\IAdmin\Infra\Http\Controllers;
 use IRaven\IAdmin\Domain\Contracts\Services\PingServiceContract;
 use IRaven\IAdmin\Infra\Http\Requests\PingRequest;
 use IRaven\IAdmin\Domain\Exceptions\PingWriteException;
+use Spatie\Multitenancy\Models\Tenant;
 
 /**
  * Class PingController
@@ -12,7 +13,7 @@ use IRaven\IAdmin\Domain\Exceptions\PingWriteException;
  */
 class PingController extends BaseController
 {
-    private $pingService;
+    private PingServiceContract $pingService;
 
     /**
      * PingController constructor.

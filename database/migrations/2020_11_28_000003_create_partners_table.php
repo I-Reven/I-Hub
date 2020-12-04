@@ -18,8 +18,7 @@ class CreatePartnersTable extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('slog')->unique();
+            $table->string('name');
             $table->string('domain')->unique();
             $table->string('database')->unique();
             $table->timestamps();

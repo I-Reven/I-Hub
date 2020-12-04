@@ -22,8 +22,7 @@ class PartnerFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'slog' => $this->faker->word,
-            'domain' => $this->faker->word,
+            'domain' => database_path('testbench'),
             'database' => $this->faker->word,
         ];
     }

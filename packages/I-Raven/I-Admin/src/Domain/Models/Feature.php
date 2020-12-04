@@ -4,6 +4,7 @@ namespace IRaven\IAdmin\Domain\Models;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
@@ -11,6 +12,7 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use IRaven\IAdmin\Infra\Database\Factories\FeatureFactory;
+use Spatie\Multitenancy\Models\Concerns\UsesLandlordConnection;
 
 /**
  * Class Feature
@@ -40,9 +42,9 @@ use IRaven\IAdmin\Infra\Database\Factories\FeatureFactory;
  * @method static \Illuminate\Database\Query\Builder|Feature withoutTrashed()
  * @mixin Eloquent
  */
-class Feature extends Authenticatable
+class Feature extends Model
 {
-    use Notifiable, SoftDeletes;
+    use Notifiable, SoftDeletes, UsesLandlordConnection;
 
     /**
      * @var string[]

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use IRaven\IAdmin\Infra\Http\Controllers\AuthController;
 use IRaven\IAdmin\Infra\Http\Controllers\PingController;
 use IRaven\IAdmin\Infra\Http\Middleware\CanPing;
+use Spatie\Multitenancy\Http\Middleware\NeedsTenant;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,14 @@ use IRaven\IAdmin\Infra\Http\Middleware\CanPing;
 */
 
 Route::prefix('i-raven/i-admin/api/')
-    ->middleware(CanPing::class)
+    ->middleware(NeedsTenant::class)
     ->group(function () {
         Route::prefix('v1/')
             ->group(function () {
-                Route::get('ping', [PingController::class, 'ping'])->name('ping');
+
+                Route::middleware(CanPing::class)->group(function () {
+                    Route::get('ping', [PingController::class, 'ping'])->name('ping');
+                });
 
                 Route::prefix('auth/')->group(function () {
                     Route::post('login', [AuthController::class, 'login'])->name('login');

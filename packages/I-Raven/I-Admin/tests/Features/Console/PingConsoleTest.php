@@ -36,7 +36,7 @@ class PingConsoleTest extends TestCase
 
         $this->artisan('i-admin:ping', ['ip' => $ip]);
 
-        $this->assertDatabaseHas('pings', ['ip' => $ip]);
+        $this->assertDatabaseHas('pings', ['ip' => $ip], 'partner');
 
         Log::assertLogged('info', function ($message, $context) use ($logs) {
             return in_array($message, $logs);

@@ -5,6 +5,7 @@ namespace IRaven\IAdmin\Domain\Models;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
@@ -12,6 +13,7 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use IRaven\IAdmin\Infra\Database\Factories\UserFactory;
+use Spatie\Multitenancy\Models\Concerns\UsesLandlordConnection;
 
 /**
  * Class Admin
@@ -41,9 +43,9 @@ use IRaven\IAdmin\Infra\Database\Factories\UserFactory;
  * @method static \Illuminate\Database\Query\Builder|Admin withoutTrashed()
  * @mixin Eloquent
  */
-class Admin extends Authenticatable
+class Admin extends Model
 {
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes, UsesLandlordConnection;
 
     public const PENDING = 0;
     public const ADMIN = 1;

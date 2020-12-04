@@ -3,7 +3,6 @@
 namespace IRaven\IAdmin\Infra\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use IRaven\IAdmin\Domain\Models\Ping;
 
 /**
  * Class IAdminDatabaseSeeder
@@ -11,8 +10,8 @@ use IRaven\IAdmin\Domain\Models\Ping;
  */
 class IAdminDatabaseSeeder extends Seeder
 {
-    public function run()
+    public static function run()
     {
-        Ping::factory(10)->create();
+       PartnerSeeder::run();
     }
 }

@@ -24,7 +24,8 @@ class IHubServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__ . '/Infra/Resources/lang', 'i-raven');
         $this->loadViewsFrom(__DIR__ . '/Infra/Resources/views', 'i-raven');
-        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations/tenant');
+        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations/landlord');
         $this->loadRoutesFrom(__DIR__ . '/Infra/Routes/api.php');
         $this->loadRoutesFrom(__DIR__ . '/Infra/Routes/web.php');
 
@@ -88,18 +89,26 @@ class IHubServiceProvider extends ServiceProvider
 
         // Publishing the views.
         $this->publishes([
-            __DIR__ . '/Infra/Resources/views' => base_path('resources/views/vendor/i-raven'),
+            __DIR__ . 'Infra/Resources/views' => base_path('resources/views/vendor/i-raven'),
         ], 'i-hub.views');
 
         // Publishing assets.
         $this->publishes([
-            __DIR__ . '/../resources/assets' => public_path('vendor/i-raven'),
+            __DIR__ . 'Infra/Resources/assets' => public_path('vendor/i-raven'),
         ], 'i-hub.views');
 
         // Publishing the translation files.
         $this->publishes([
-            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/i-raven'),
+            __DIR__ . 'Infra/Resources/lang' => resource_path('lang/vendor/i-raven'),
         ], 'i-hub.views');
+
+        // Publishing the migration files.
+        $this->publishes([
+            __DIR__ . '/Infra/Database/Migrations/tenant' => database_path('migrations/tenant'),
+        ], 'i-hub.tenant');
+        $this->publishes([
+            __DIR__ . '/Infra/Database/Migrations/landlord' => database_path('migrations/landlord'),
+        ], 'i-hub.landlord');
 
         // Registering package commands.
         $this->commands([
