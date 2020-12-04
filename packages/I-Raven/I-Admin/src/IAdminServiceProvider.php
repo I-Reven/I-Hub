@@ -34,8 +34,8 @@ class IAdminServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__ . '/Infra/Resources/lang', 'i-admin');
         $this->loadViewsFrom(__DIR__ . '/Infra/Resources/views', 'i-admin');
-        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations/tenant');
-        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations/landlord');
+//        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations/partner');
+//        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations/landlord');
         $this->loadRoutesFrom(__DIR__ . '/Infra/Routes/api.php');
         $this->loadRoutesFrom(__DIR__ . '/Infra/Routes/web.php');
 
@@ -97,6 +97,9 @@ class IAdminServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/Domain/Config/i-admin.php' => config_path('i-admin.php'),
         ], 'i-admin.config');
+        $this->publishes([
+            __DIR__ . '/Domain/Config/multitenancy.php' => config_path('multitenancy.php'),
+        ], 'i-admin.config');
 
         // Publishing the views.
         $this->publishes([
@@ -115,10 +118,10 @@ class IAdminServiceProvider extends ServiceProvider
 
         // Publishing the migration files.
         $this->publishes([
-            __DIR__ . '/Infra/Database/Migrations/tenant' => database_path('migrations/tenant'),
+            __DIR__ . '/Infra/Database/Migrations/partner' => database_path('migrations/partner'),
         ], 'i-admin.tenant');
         $this->publishes([
-            __DIR__ . '/Infra/Database/Migrations/landlord' => database_path('migrations'),
+            __DIR__ . '/Infra/Database/Migrations/landlord' => database_path('migrations/landlord'),
         ], 'i-admin.landlord');
 
         // Registering package commands.
