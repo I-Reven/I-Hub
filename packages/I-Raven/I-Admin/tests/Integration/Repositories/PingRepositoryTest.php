@@ -3,6 +3,7 @@
 namespace IRaven\IAdmin\Tests\Integration\Repositories;
 
 use IRaven\IAdmin\Domain\Exceptions\PingWriteException;
+use IRaven\IAdmin\Domain\Models\Partner;
 use IRaven\IAdmin\Domain\Models\Ping;
 use IRaven\IAdmin\Infra\Repositories\PingRepository;
 use IRaven\IAdmin\Tests\TestCase;
@@ -19,6 +20,7 @@ class PingRepositoryTest extends TestCase
 
     public function construct(): void
     {
+        Partner::first()->makeCurrent();
         $this->repository = new PingRepository();
     }
 
@@ -38,7 +40,7 @@ class PingRepositoryTest extends TestCase
         $expected = $this->repository->pingIp($ip);
 
         $this->assertEquals($ip, $expected->ip);
-        $this->assertDatabaseHas('pings', ['ip' => $ip]);
+        $this->assertDatabaseHas('pings', ['ip' => $ip], 'partner');
     }
 
     /**
@@ -52,6 +54,6 @@ class PingRepositoryTest extends TestCase
         $expected = $this->repository->pingIp($ping->ip);
 
         $this->assertEquals($ping->ip, $expected->ip);
-        $this->assertDatabaseHas('pings', ['ip' => $ping->ip]);
+        $this->assertDatabaseHas('pings', ['ip' => $ping->ip], 'partner');
     }
 }

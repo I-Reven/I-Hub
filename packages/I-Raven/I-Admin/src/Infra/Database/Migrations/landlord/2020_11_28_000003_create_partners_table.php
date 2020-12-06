@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use IRaven\IAdmin\Infra\Database\Seeders\PartnerSeeder;
 
 /**
  * Class CreatePartnersTable
@@ -24,6 +25,8 @@ class CreatePartnersTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        PartnerSeeder::run();
     }
 
     /**

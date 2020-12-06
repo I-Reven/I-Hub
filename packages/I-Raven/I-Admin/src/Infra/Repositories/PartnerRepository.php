@@ -23,14 +23,4 @@ class PartnerRepository implements PartnerRepositoryContract
     {
         $this->partner = $partner;
     }
-
-    /**
-     * @param string $slog
-     * @return Partner
-     * @throws ModelNotFoundException
-     */
-    public function getPartnerBySlog(string $slog): Partner
-    {
-        return $this->partner->where(['slog' => $slog])->firstOrFail();
-    }
 }

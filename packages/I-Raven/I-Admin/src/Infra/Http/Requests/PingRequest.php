@@ -2,13 +2,11 @@
 
 namespace IRaven\IAdmin\Infra\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
 /**
  * Class Ping
  * @package IRaven\IAdmin\Infra\Http\Requests
  */
-class PingRequest extends FormRequest
+class PingRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.

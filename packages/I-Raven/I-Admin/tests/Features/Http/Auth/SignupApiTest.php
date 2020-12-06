@@ -3,10 +3,13 @@
 namespace IRaven\IAdmin\Tests\Features\Http\Auth;
 
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 use IRaven\IAdmin\Domain\Models\Admin;
+use IRaven\IAdmin\Domain\Models\Partner;
 use IRaven\IAdmin\Domain\Models\User;
 use IRaven\IAdmin\Infra\Database\Factories\UserFactory;
 use IRaven\IAdmin\Tests\TestCase;
+use TiMacDonald\Log\LogFake;
 
 /**
  * Class SignupApiTest
@@ -16,7 +19,6 @@ class SignupApiTest extends TestCase
 {
     public function construct(): void
     {
-        // TODO: Implement construct() method.
     }
 
     public function destruct(): void
@@ -49,18 +51,23 @@ class SignupApiTest extends TestCase
      */
     public function it_should_return_error_when_can_cont_find_partner()
     {
-        $user = User::factory()->make();
+        Log::swap(new LogFake);
 
-        $response = $this->post('i-raven/i-admin/api/v1/auth/signup', [
+        $user = User::factory()->make();
+        $logs = [
+            '["The name may not be greater than 255 characters."]',
+        ];
+
+        $response = $this->postJson('i-raven/i-admin/api/v1/auth/signup', [
             'name' => $this->faker->sentence(100),
             'email' => $user->email,
             'password' => UserFactory::PASSWORD,
         ]);
 
-        dd($response);
-
         $this->assertSame($response->getStatusCode(), Response::HTTP_FOUND);
-        $this->assertDatabaseMissing('users', ['email' => $user->email, 'name' => $user->name],'landlord');
-//        $this->assertEquals('ERR', $response->getData()->status);
+        $this->assertEquals('ERR', $response->getData()->status);
+        Log::assertLogged('error', function ($message, $context) use ($logs) {
+            return in_array($message, $logs);
+        });
     }
 }

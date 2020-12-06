@@ -11,10 +11,5 @@ use IRaven\IAdmin\Domain\Models\Partner;
  */
 interface PartnerRepositoryContract
 {
-    /**
-     * @param string $slog
-     * @return Partner
-     * @throws ModelNotFoundException
-     */
-    public function getPartnerBySlog(string $slog): Partner;
+
 }

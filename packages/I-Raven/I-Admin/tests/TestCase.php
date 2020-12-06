@@ -2,17 +2,14 @@
 
 namespace IRaven\IAdmin\Tests;
 
-use Event;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use IRaven\IAdmin\Domain\Models\Partner;
 use IRaven\IAdmin\IAdminServiceProvider;
-use IRaven\IAdmin\Infra\Database\Seeders\IAdminDatabaseSeeder;
 use Laravel\Telescope\Storage\DatabaseEntriesRepository;
 use Orchestra\Testbench\TestCase as TestBench;
 use Spatie\Multitenancy\Concerns\UsesMultitenancyConfig;
-use Spatie\Multitenancy\Events\MadeTenantCurrentEvent;
 use Spatie\Multitenancy\MultitenancyServiceProvider;
 
 /**
@@ -27,14 +24,8 @@ abstract class TestCase extends TestBench
     {
         parent::setUp();
 
-        Event::listen(MadeTenantCurrentEvent::class, function () {
-            $this->beginDatabaseTransaction();
-        });
-
-        IAdminDatabaseSeeder::run();
-
         Partner::first()->makeCurrent();
-
+        $this->beginDatabaseTransaction();
         $this->construct();
     }
 
@@ -94,29 +85,27 @@ abstract class TestCase extends TestBench
     {
         $config = $app->get('config');
 
+        $config->set('testing.db', __DIR__ . '/testing.sqlite');
         $config->set('logging.default', 'errorlog');
 
         $config->set('database.default', 'testing');
 
         $config->set('database.connections.testing', [
             'driver' => 'sqlite',
-            'database' =>'testing',
+            'database' => config('testing.db'),
             'prefix' => '',
-            'foreign_key_constraints' => true,
         ]);
 
         $config->set('database.connections.landlord', [
             'driver' => 'sqlite',
-            'database' =>'testing',
+            'database' => config('testing.db'),
             'prefix' => '',
-            'foreign_key_constraints' => true,
         ]);
 
         $config->set('database.connections.partner', [
             'driver' => 'sqlite',
-            'database' =>'testing',
+            'database' => config('testing.db'),
             'prefix' => '',
-            'foreign_key_constraints' => true,
         ]);
 
         $app->when(DatabaseEntriesRepository::class)

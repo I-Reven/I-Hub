@@ -14,14 +14,14 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ErrorResource extends JsonResource
 {
-
     /**
      * @param Request $request
      * @param JsonResponse $response
      */
     public function withResponse($request, $response)
     {
-        $response->setStatusCode(Response::HTTP_BAD_REQUEST);
+
+        $response->setStatusCode($this->getCode() ?: Response::HTTP_BAD_REQUEST);
     }
 
     public function with($request)
@@ -29,6 +29,7 @@ class ErrorResource extends JsonResource
         return [
             'status' => 'ERR',
             'code' => $this->getCode(),
+            'message' => $this->getMessage(),
         ];
     }
 
@@ -38,8 +39,6 @@ class ErrorResource extends JsonResource
      */
     public function toArray($request): array
     {
-        return [
-            'error' => $this->getMessage(),
-        ];
+        return [];
     }
 }

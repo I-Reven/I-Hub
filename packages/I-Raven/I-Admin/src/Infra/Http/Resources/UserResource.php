@@ -4,6 +4,8 @@ namespace IRaven\IAdmin\Infra\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Symfony\Component\HttpFoundation\Response;
+use const http\Client\Curl\Features\HTTP2;
 
 /**
  * Class UserResource
@@ -11,6 +13,17 @@ use Illuminate\Http\Resources\Json\JsonResource;
  */
 class UserResource extends JsonResource
 {
+
+    public function with($request)
+    {
+        return [
+            'status' => 'SUCCESS',
+            'code' => Response::HTTP_OK,
+            'message' => "",
+        ];
+    }
+
+
     /**
      * @param Request $request
      * @return array

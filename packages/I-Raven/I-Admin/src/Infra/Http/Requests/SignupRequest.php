@@ -2,14 +2,16 @@
 
 namespace IRaven\IAdmin\Infra\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Validator;
+use Dotenv\Exception\ValidationException;
+use Exception;
+use Illuminate\Contracts\Validation\Validator;
+use IRaven\IAdmin\Domain\Exceptions\ValidatorException;
 
 /**
  * Class Ping
  * @package IRaven\IAdmin\Infra\Http\Requests
  */
-class SignupRequest extends FormRequest
+class SignupRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,5 +35,13 @@ class SignupRequest extends FormRequest
             'name' => 'required|max:255',
             'password' => 'required|max:255',
         ];
+    }
+
+    /**
+     * @param Validator $validator
+     * @throws ValidatorException
+     */
+    protected function failedValidation(Validator $validator){
+        throw new ValidatorException($validator);
     }
 }

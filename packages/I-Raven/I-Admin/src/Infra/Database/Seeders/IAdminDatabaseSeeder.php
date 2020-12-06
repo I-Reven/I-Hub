@@ -12,7 +12,6 @@ class IAdminDatabaseSeeder extends Seeder
 {
     public static function run()
     {
-       PartnerSeeder::run();
-       PingSeeder::run();
+        PartnerSeeder::run();
     }
 }

@@ -14,7 +14,7 @@ class PartnerSeeder
         DB::table('partners')->insert([
             'name' => 'tenant',
             'domain' => 'localhost',
-            'database' => 'testing'
+            'database' => config('testing.db')
         ]);
     }
 
