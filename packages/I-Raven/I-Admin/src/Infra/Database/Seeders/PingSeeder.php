@@ -2,17 +2,17 @@
 
 namespace IRaven\IAdmin\Infra\Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use IRaven\IAdmin\Domain\Models\Ping;
 
 /**
- * Class IAdminDatabaseSeeder
+ * Class PingSeeder
  * @package IRaven\IAdmin\Infra\Database\Seeders
  */
-class IAdminDatabaseSeeder extends Seeder
+class PingSeeder
 {
     public static function run()
     {
-       PartnerSeeder::run();
-       PingSeeder::run();
+        Ping::factory(1)->create();
     }
+
 }

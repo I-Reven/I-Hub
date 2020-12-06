@@ -34,8 +34,6 @@ class IAdminServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__ . '/Infra/Resources/lang', 'i-admin');
         $this->loadViewsFrom(__DIR__ . '/Infra/Resources/views', 'i-admin');
-//        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations/partner');
-//        $this->loadMigrationsFrom(__DIR__ . '/Infra/Database/Migrations/landlord');
         $this->loadRoutesFrom(__DIR__ . '/Infra/Routes/api.php');
         $this->loadRoutesFrom(__DIR__ . '/Infra/Routes/web.php');
 

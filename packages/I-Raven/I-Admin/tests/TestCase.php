@@ -2,7 +2,6 @@
 
 namespace IRaven\IAdmin\Tests;
 
-use Artisan;
 use Event;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -12,7 +11,6 @@ use IRaven\IAdmin\IAdminServiceProvider;
 use IRaven\IAdmin\Infra\Database\Seeders\IAdminDatabaseSeeder;
 use Laravel\Telescope\Storage\DatabaseEntriesRepository;
 use Orchestra\Testbench\TestCase as TestBench;
-use Request;
 use Spatie\Multitenancy\Concerns\UsesMultitenancyConfig;
 use Spatie\Multitenancy\Events\MadeTenantCurrentEvent;
 use Spatie\Multitenancy\MultitenancyServiceProvider;
@@ -40,7 +38,7 @@ abstract class TestCase extends TestBench
         $this->construct();
     }
 
-    protected function connectionsToTransact()
+    protected function connectionsToTransact(): array
     {
         return [
             $this->landlordDatabaseConnectionName(),
@@ -81,6 +79,11 @@ abstract class TestCase extends TestBench
         $app->detectEnvironment(function () {
             return 'self-testing';
         });
+
+        $app->afterResolving('migrator', function ($migrator) {
+            $migrator->path('vendor/i-raven/i-admin/src/Infra/Database/Migrations/partner');
+            $migrator->path('vendor/i-raven/i-admin/src/Infra/Database/Migrations/landlord');
+        });
     }
 
     /**
@@ -93,28 +96,31 @@ abstract class TestCase extends TestBench
 
         $config->set('logging.default', 'errorlog');
 
-        $config->set('database.default', 'testbench');
+        $config->set('database.default', 'testing');
 
-        $config->set('database.connections.testbench', [
+        $config->set('database.connections.testing', [
             'driver' => 'sqlite',
-            'database' => ':memory:testbench',
+            'database' =>'testing',
             'prefix' => '',
+            'foreign_key_constraints' => true,
         ]);
 
         $config->set('database.connections.landlord', [
             'driver' => 'sqlite',
-            'database' => ':memory:testbench',
+            'database' =>'testing',
             'prefix' => '',
+            'foreign_key_constraints' => true,
         ]);
 
         $config->set('database.connections.partner', [
             'driver' => 'sqlite',
-            'database' => ':memory:testbench',
+            'database' =>'testing',
             'prefix' => '',
+            'foreign_key_constraints' => true,
         ]);
 
         $app->when(DatabaseEntriesRepository::class)
             ->needs('$connection')
-            ->give('testbench');
+            ->give('testing');
     }
 }
