@@ -22,8 +22,8 @@ class AdminFactory extends Factory
     public function definition(): array
     {
         return [
-            'parent_id' => Partner::factory(),
-            'user_id' => User::factory(),
+            'partner_id' => Partner::factory()->create()->id,
+            'user_id' => User::factory()->create()->id,
             'rule' => $this->faker->randomElement(Admin::RULES),
         ];
     }

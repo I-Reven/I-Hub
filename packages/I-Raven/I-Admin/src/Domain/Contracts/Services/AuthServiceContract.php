@@ -2,8 +2,8 @@
 
 namespace IRaven\IAdmin\Domain\Contracts\Services;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use IRaven\IAdmin\Domain\Models\User;
+use Laravel\Passport\PersonalAccessTokenResult;
 
 /**
  * Interface AuthServiceContract
@@ -18,5 +18,13 @@ interface AuthServiceContract
      * @return User
      */
     public function signup(string $email, string $name, string $password): User;
+
+    /**
+     * @param string $email
+     * @param string $password
+     * @param bool $rememberMe
+     * @return PersonalAccessTokenResult
+     */
+    public function login(string $email, string $password, bool $rememberMe): PersonalAccessTokenResult;
 
 }

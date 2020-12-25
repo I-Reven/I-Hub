@@ -2,10 +2,15 @@
 
 namespace IRaven\IAdmin\Infra\Database\Factories;
 
+use Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use IRaven\IAdmin\Domain\Models\User;
 
+/**
+ * Class UserFactory
+ * @package IRaven\IAdmin\Infra\Database\Factories
+ */
 class UserFactory extends Factory
 {
     public const PASSWORD = 'password';
@@ -22,7 +27,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
-            'password' => bcrypt(self::PASSWORD),
+            'password' => Hash::make(self::PASSWORD),
             'remember_token' => Str::random(10),
         ];
     }

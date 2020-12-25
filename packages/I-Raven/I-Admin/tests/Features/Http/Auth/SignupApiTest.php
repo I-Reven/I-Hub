@@ -5,7 +5,6 @@ namespace IRaven\IAdmin\Tests\Features\Http\Auth;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use IRaven\IAdmin\Domain\Models\Admin;
-use IRaven\IAdmin\Domain\Models\Partner;
 use IRaven\IAdmin\Domain\Models\User;
 use IRaven\IAdmin\Infra\Database\Factories\UserFactory;
 use IRaven\IAdmin\Tests\TestCase;
@@ -33,7 +32,7 @@ class SignupApiTest extends TestCase
     {
         $user = User::factory()->make();
 
-        $response = $this->post('i-raven/i-admin/api/v1/auth/signup', [
+        $response = $this->postJson('i-raven/i-admin/api/v1/auth/signup', [
             'name' => $user->name,
             'email' => $user->email,
             'password' => UserFactory::PASSWORD,
@@ -43,7 +42,7 @@ class SignupApiTest extends TestCase
         $this->assertDatabaseHas('users', ['email' => $user->email, 'name' => $user->name], 'landlord');
         $this->assertDatabaseHas('admins', ['partner_id' => 1], 'landlord');
         $this->assertEquals($user->email, $response->getData()->data->email);
-        $this->assertEquals($user->rule, Admin::PENDING);
+        $this->assertEquals(Admin::PENDING, $response->getData()->data->rule);
     }
 
     /**

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use IRaven\IAdmin\Domain\Models\Partner;
 use IRaven\IAdmin\IAdminServiceProvider;
+use Laravel\Passport\PassportServiceProvider;
 use Laravel\Telescope\Storage\DatabaseEntriesRepository;
 use Orchestra\Testbench\TestCase as TestBench;
 use Spatie\Multitenancy\Concerns\UsesMultitenancyConfig;
@@ -57,6 +58,7 @@ abstract class TestCase extends TestBench
         return [
             IAdminServiceProvider::class,
             MultitenancyServiceProvider::class,
+            PassportServiceProvider::class
         ];
     }
 

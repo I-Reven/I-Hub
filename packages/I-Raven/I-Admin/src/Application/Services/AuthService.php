@@ -2,12 +2,12 @@
 
 namespace IRaven\IAdmin\Application\Services;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use IRaven\IAdmin\Domain\Contracts\Repositories\AdminRepositoryContract;
 use IRaven\IAdmin\Domain\Contracts\Repositories\PartnerRepositoryContract;
 use IRaven\IAdmin\Domain\Contracts\Services\AuthServiceContract;
 use IRaven\IAdmin\Domain\Contracts\Repositories\UserRepositoryContract;
 use IRaven\IAdmin\Domain\Models\User;
+use Laravel\Passport\PersonalAccessTokenResult;
 
 class AuthService implements AuthServiceContract
 {
@@ -45,5 +45,17 @@ class AuthService implements AuthServiceContract
         $this->adminRepository->addUserRule($user, $partner);
 
         return $user;
+    }
+
+    /**
+     * @param string $email
+     * @param string $password
+     * @param bool $rememberMe
+     * @return PersonalAccessTokenResult
+     */
+    public function login(string $email, string $password, bool $rememberMe): PersonalAccessTokenResult
+    {
+        $user = $this->userRepository->getUserByEmailAndPassword($email, $password);
+        return $this->userRepository->getToken($user, $rememberMe);
     }
 }

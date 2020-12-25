@@ -13,14 +13,4 @@ use IRaven\IAdmin\Domain\Models\Partner;
  */
 class PartnerRepository implements PartnerRepositoryContract
 {
-    private $partner;
-
-    /**
-     * PartnerRepository constructor.
-     * @param Partner $partner
-     */
-    public function __construct(Partner $partner)
-    {
-        $this->partner = $partner;
-    }
 }

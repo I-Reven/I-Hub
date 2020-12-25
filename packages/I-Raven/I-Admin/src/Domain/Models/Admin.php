@@ -6,12 +6,15 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use IRaven\IAdmin\Infra\Database\Factories\AdminFactory;
 use IRaven\IAdmin\Infra\Database\Factories\UserFactory;
 use Spatie\Multitenancy\Models\Concerns\UsesLandlordConnection;
 
@@ -72,10 +75,18 @@ class Admin extends Model
     ];
 
     /**
-     * @return UserFactory
+     * @return AdminFactory
      */
-    public static function newFactory(): UserFactory
+    public static function newFactory(): AdminFactory
     {
-        return new UserFactory();
+        return new AdminFactory();
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

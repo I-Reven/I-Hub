@@ -2,17 +2,15 @@
 
 namespace IRaven\IAdmin\Infra\Http\Requests;
 
-use Dotenv\Exception\ValidationException;
-use Exception;
 use Illuminate\Contracts\Validation\Validator;
 use IRaven\IAdmin\Domain\Exceptions\ValidatorException;
 use Laravel\Fortify\Rules\Password;
 
 /**
- * Class SignupRequest
+ * Class LoginRequest
  * @package IRaven\IAdmin\Infra\Http\Requests
  */
-class SignupRequest extends BaseRequest
+class LoginRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,9 +30,9 @@ class SignupRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|unique:users|max:255',
+            'email' => 'required|email|max:255',
             'password' => ['required', 'string', new Password],
-            'name' => 'required|max:255',
+            'remember_me' => 'boolean'
         ];
     }
 

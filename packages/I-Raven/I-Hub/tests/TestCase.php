@@ -23,8 +23,7 @@ abstract class TestCase extends TestBench
     {
         parent::setUp();
 
-        $this->loadLaravelMigrations(['--database' => 'testbench']);
-
+        $this->beginDatabaseTransaction();
         $this->construct();
     }
 
@@ -59,6 +58,11 @@ abstract class TestCase extends TestBench
 
         $app->detectEnvironment(function () {
             return 'self-testing';
+        });
+
+        $app->afterResolving('migrator', function ($migrator) {
+            $migrator->path('vendor/i-raven/i-hub/src/Infra/Database/Migrations/partner');
+            $migrator->path('vendor/i-raven/i-hub/src/Infra/Database/Migrations/landlord');
         });
     }
 

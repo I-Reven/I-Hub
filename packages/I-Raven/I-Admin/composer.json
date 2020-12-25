@@ -44,7 +44,11 @@
             ],
             "aliases": {
                 "IAdmin": "IAdminFacade"
-            }
+            },
+            "dont-discover": [
+                "laravel/passport",
+                "danjdewhurst/laravel-passport-facebook-login"
+            ]
         }
     }
 }
