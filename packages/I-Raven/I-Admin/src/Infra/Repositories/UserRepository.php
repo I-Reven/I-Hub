@@ -43,7 +43,6 @@ class UserRepository implements UserRepositoryContract
     public function getUserByEmailAndPassword(string $email, string $password): User
     {
         $user = User::where(['email' => $email])->firstOrFail();
-
         if (!Hash::check($password, $user->password)) {
             throw (new ModelNotFoundException())->setModel('user', $user->id);
         }
@@ -59,7 +58,6 @@ class UserRepository implements UserRepositoryContract
     public function getToken(User $user, bool $rememberMe): PersonalAccessTokenResult
     {
         $tokenResult = $user->createToken('Personal Access Token');
-        dd($user);
         $token = $tokenResult->token;
 
         if ($rememberMe) {

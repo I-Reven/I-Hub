@@ -32,7 +32,7 @@ class SignupRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|unique:users|max:255',
+            'email' => 'required|email|max:255',
             'password' => ['required', 'string', new Password],
             'name' => 'required|max:255',
         ];

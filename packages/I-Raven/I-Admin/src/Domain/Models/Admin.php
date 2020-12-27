@@ -82,11 +82,11 @@ class Admin extends Model
         return new AdminFactory();
     }
 
-    /**
-     * @return BelongsTo
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+//    /**
+//     * @return BelongsTo
+//     */
+//    public function user(): BelongsTo
+//    {
+//        return $this->belongsTo(User::class);
+//    }
 }

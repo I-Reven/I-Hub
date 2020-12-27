@@ -83,14 +83,14 @@
     "repositories": {
         "i-raven/i-admin": {
             "type": "path",
-            "url": "/Users/kousha/I-Raven/I-Hub/packages/I-Raven/I-Admin",
+            "url": "packages/I-Raven/I-Admin",
             "options": {
                 "symlink": true
             }
         },
         "i-raven/i-hub": {
             "type": "path",
-            "url": "/Users/kousha/I-Raven/I-Hub/packages/I-Raven/I-Hub",
+            "url": "packages/I-Raven/I-Hub",
             "options": {
                 "symlink": true
             }

@@ -180,6 +180,7 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         JeroenG\Packager\PackagerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*
